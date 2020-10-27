@@ -1,6 +1,7 @@
 package CountDistance
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -26,6 +27,10 @@ func Distance(lt1, ln1, lt2, ln2 float64) (km float64) {
 	lat2 := degreesToRadians(lt2)
 	lon2 := degreesToRadians(ln2)
 
+	if lat1 == 0 {
+		lat1 = lat2
+		lon1 = lon2
+	}
 	diffLat := lat2 - lat1
 	diffLon := lon2 - lon1
 
@@ -38,4 +43,8 @@ func Distance(lt1, ln1, lt2, ln2 float64) (km float64) {
 	km = mi * 1.609
 
 	return km
+}
+
+func main() {
+	fmt.Println(Distance(0, 0, -6.246422, 106.804261))
 }
