@@ -20,11 +20,11 @@ func degreesToRadians(d float64) float64 {
 	return d * math.Pi / 180
 }
 
-func Distance() (km float64) {
-	lat1 := degreesToRadians(-6.506584)
-	lon1 := degreesToRadians(106.646979)
-	lat2 := degreesToRadians(-6.506621)
-	lon2 := degreesToRadians(106.647172)
+func Distance(lt1, ln1, lt2, ln2 float64) (km float64) {
+	lat1 := degreesToRadians(lt1)
+	lon1 := degreesToRadians(ln1)
+	lat2 := degreesToRadians(lt2)
+	lon2 := degreesToRadians(ln2)
 
 	diffLat := lat2 - lat1
 	diffLon := lon2 - lon1
@@ -36,6 +36,6 @@ func Distance() (km float64) {
 
 	mi := c * earthRadiusMi
 	km = mi * 1.609
-	//jmlh = math.Round(km)
+
 	return km
 }
